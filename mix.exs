@@ -41,7 +41,8 @@ defmodule Tubex.Mixfile do
     [
       {:poison, "~> 1.5"},
       {:httpoison, "~> 0.8.0"},
-      {:ex_doc, "~> 0.8.0", only: :docs}
+      {:ex_doc, "~> 0.8.0", only: :dev},
+      {:earmark, ">= 0.0.0", only: :dev}
     ]
   end
 end

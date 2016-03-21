@@ -18,3 +18,12 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:tubex]]
         end
 
+  3. Put your config YouTube Data API Key
+  config :tubex, Tubex,
+    api_key: "< Your API Key >"
+
+## Usage
+
+```elixir
+Tubex.Video.search_by_query("Cooking")
+```

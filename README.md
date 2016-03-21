@@ -19,8 +19,12 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         end
 
   3. Put your config YouTube Data API Key
-  config :tubex, Tubex,
-    api_key: "< Your API Key >"
+
+```elixir
+config :tubex, Tubex,
+  api_key: "< Your API Key >"
+```
+
 
 ## Usage
 

@@ -58,7 +58,7 @@ defmodule Tubex.Video do
       %Tubex.Video{
         etag: snippet["etag"],
         title: snippet["title"],
-        thumbnails: Enum.map(snippet["thumbnails"], &to_key_atom/1),
+        thumbnails: snippet["thumbnails"],
         published_at: snippet["publishedAt"],
         channel_title: snippet["channelTitle"],
         channel_id: snippet["channelId"],

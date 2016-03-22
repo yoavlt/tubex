@@ -18,13 +18,16 @@ defmodule Tubex.Video do
     end
   end
 
+  @doc """
+  Search from youtube via query.
+  """
   def search_by_query(query, opts \\ []) do
     defaults = [key: Tubex.api_key, part: "snippet", maxResults: 20, type: "video", q: query]
     opts = Keyword.merge(defaults, opts)
 
     case Tubex.API.get(Tubex.endpoint <> "/search", opts) do
       {:ok, response} ->
-        Enum.map(response["items"], &parse/1)
+        {:ok, Enum.map(response["items"], &parse!/1)}
       err -> err
     end
   end
@@ -34,13 +37,20 @@ defmodule Tubex.Video do
     opts = Keyword.merge(defaults, opts)
     case Tubex.API.get(Tubex.endpoint <> "/search", opts) do
       {:ok, response} ->
-        Enum.map(response["items"], &parse/1)
+        Enum.map(response["items"], &parse!/1)
       err -> err
     end
   end
 
   defp to_key_atom({k, v}) do
     {String.to_atom(k), v}
+  end
+
+  defp parse!(body) do
+    case parse(body) do
+      {:ok, video} -> video
+      {:error, body} -> raise "Parse error occured! #{body}"
+    end
   end
 
   defp parse(%{"snippet" => snippet, "id" => %{"videoId" => video_id}}) do
@@ -56,5 +66,9 @@ defmodule Tubex.Video do
         video_id: video_id
       }
     }
+  end
+
+  defp parse(body) do
+    {:error, body}
   end
 end

@@ -2,10 +2,6 @@ defmodule Tubex.Video do
 
   defstruct title: nil, etag: nil, video_id: nil, channel_id: nil, channel_title: nil, description: nil, published_at: nil, thumbnails: []
 
-  def query(string) do
-    Tubex.API.get(Tubex.endpoint <> "/video")
-  end
-
   @doc """
   fetch contents details
   """
@@ -27,7 +23,8 @@ defmodule Tubex.Video do
 
     case Tubex.API.get(Tubex.endpoint <> "/search", opts) do
       {:ok, response} ->
-        {:ok, Enum.map(response["items"], &parse!/1)}
+        IO.inspect response
+        {:ok, Enum.map(response["items"], &parse!/1), response["pageInfo"]}
       err -> err
     end
   end
@@ -37,13 +34,9 @@ defmodule Tubex.Video do
     opts = Keyword.merge(defaults, opts)
     case Tubex.API.get(Tubex.endpoint <> "/search", opts) do
       {:ok, response} ->
-        Enum.map(response["items"], &parse!/1)
+        {:ok, Enum.map(response["items"], &parse!/1), response["pageInfo"]}
       err -> err
     end
-  end
-
-  defp to_key_atom({k, v}) do
-    {String.to_atom(k), v}
   end
 
   defp parse!(body) do

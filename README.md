@@ -1,6 +1,6 @@
 # Tubex
 
-**TODO: Add description**
+Lightweight YouTube v3 API Wrapper
 
 ## Installation
 

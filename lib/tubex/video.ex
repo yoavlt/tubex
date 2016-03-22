@@ -23,7 +23,9 @@ defmodule Tubex.Video do
 
     case Tubex.API.get(Tubex.endpoint <> "/search", opts) do
       {:ok, response} ->
-        {:ok, Enum.map(response["items"], &parse!/1), response["pageInfo"]}
+        tokens = %{"nextPageToken" => response["nextPageToken"], "prevPageToken" => response["prevPageToken"]}
+        page_info = Map.merge(response["pageInfo"], tokens)
+        {:ok, Enum.map(response["items"], &parse!/1), page_info}
       err -> err
     end
   end

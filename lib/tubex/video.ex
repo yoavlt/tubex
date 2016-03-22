@@ -23,7 +23,6 @@ defmodule Tubex.Video do
 
     case Tubex.API.get(Tubex.endpoint <> "/search", opts) do
       {:ok, response} ->
-        IO.inspect response
         {:ok, Enum.map(response["items"], &parse!/1), response["pageInfo"]}
       err -> err
     end

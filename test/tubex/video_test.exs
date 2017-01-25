@@ -4,7 +4,7 @@ defmodule TubexTest.Video do
 
   @videoId "_J4QPz52Sfo"
   @key System.get_env("YOUTUBE_API_KEY")
-  @q "The%20Great%20Debate%3A%20THE%20STORYTELLING%20OF%20SCIENCE%20%28OFFICIAL%29"
+  @q "the great debate: the storytelling of science"
 
   def video_type_spec(%Tubex.Video{}), do: true
 

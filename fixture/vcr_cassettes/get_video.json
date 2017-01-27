@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://www.googleapis.com/youtube/v3/videos?id=_J4QPz52Sfo&key=AIzaSyBfJtnqG2kesTNOm18GSC9rL3_N4CYlcLo&part=contentDetails"
+      "url": "https://www.googleapis.com/youtube/v3/videos?id=_J4QPz52Sfo&part=contentDetails"
     },
     "response": {
       "body": "{\n \"kind\": \"youtube#videoListResponse\",\n \"etag\": \"\\\"gMxXHe-zinKdE9lTnzKu8vjcmDI/JFdyorrPQSex3qroXOVBgEtnwvE\\\"\",\n \"pageInfo\": {\n  \"totalResults\": 1,\n  \"resultsPerPage\": 1\n },\n \"items\": [\n  {\n   \"kind\": \"youtube#video\",\n   \"etag\": \"\\\"gMxXHe-zinKdE9lTnzKu8vjcmDI/fEde-ty4hY8_RcD3Blotm0JCmzM\\\"\",\n   \"id\": \"_J4QPz52Sfo\",\n   \"contentDetails\": {\n    \"duration\": \"PT1H27M27S\",\n    \"dimension\": \"2d\",\n    \"definition\": \"hd\",\n    \"caption\": \"false\",\n    \"licensedContent\": true,\n    \"projection\": \"rectangular\"\n   }\n  }\n ]\n}\n",

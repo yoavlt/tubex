@@ -5,7 +5,7 @@ defmodule Tubex.Mixfile do
 
   def project do
     [app: :tubex,
-     version: "0.0.9",
+     version: "0.0.10",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -41,9 +41,9 @@ defmodule Tubex.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:poison, "~> 2.0"},
+      {:poison, "~> 3.1.0"},
       {:httpoison, "~> 0.8.0"},
-      {:ex_doc, "~> 0.8.0", only: :dev},
+      {:ex_doc, "~> 0.14.0", only: :dev},
       {:earmark, ">= 0.0.0", only: :dev},
       {:exvcr, ">= 0.0.0", only: :test},
       {:excoveralls, "~> 0.5", only: :test}

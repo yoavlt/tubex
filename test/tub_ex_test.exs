@@ -1,6 +1,6 @@
-defmodule TubexTest do
+defmodule TubExTest do
   use ExUnit.Case
-  doctest Tubex
+  doctest TubEx
 
   test "the truth" do
     assert 1 + 1 == 2

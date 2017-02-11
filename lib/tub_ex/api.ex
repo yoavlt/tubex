@@ -1,7 +1,7 @@
-defmodule Tubex.API do
+defmodule TubEx.API do
   def get(url, query \\ []) do
     HTTPoison.start
-    query = Tubex.Utils.encode_body(query)
+    query = TubEx.Utils.encode_body(query)
 
     url = unless String.length(query) == 0 do
       "#{url}?#{query}"

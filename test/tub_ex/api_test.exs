@@ -1,4 +1,4 @@
-defmodule TubexTest.API do
+defmodule TubExTest.API do
   use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
@@ -14,8 +14,8 @@ defmodule TubexTest.API do
 
   test "api post" do
     use_cassette "api_post" do
-      Tubex.API.post(
-        Tubex.endpoint <> "/videos",
+      TubEx.API.post(
+        TubEx.endpoint <> "/videos",
         %{}
       )
     end
@@ -23,8 +23,8 @@ defmodule TubexTest.API do
 
   test "api delete" do
     use_cassette "api_delete" do
-      Tubex.API.delete(
-        Tubex.endpoint <> "/videos"
+      TubEx.API.delete(
+        TubEx.endpoint <> "/videos"
       )
     end
   end

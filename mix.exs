@@ -1,10 +1,10 @@
-defmodule Tubex.Mixfile do
+defmodule TubEx.Mixfile do
   use Mix.Project
 
   @description "Elixir wrapper of YouTube Data API v3"
 
   def project do
-    [app: :tubex,
+    [app: :tub_ex,
      version: "0.0.10",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
@@ -24,9 +24,9 @@ defmodule Tubex.Mixfile do
   end
 
   defp package do
-    [maintainers: ["Takuma Yoshida"],
+    [maintainers: ["Takuma Yoshida", "Rastopyr"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/yoavlt/tubex"},
+      links: %{"GitHub" => "https://github.com/rastopyr/tub_ex"},
     ]
   end
 

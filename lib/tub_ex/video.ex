@@ -1,12 +1,12 @@
-defmodule Tubex.Video do
+defmodule TubEx.Video do
   @moduledoc """
     Provide access to the `/videos` are of YouTube API
   """
 
   @typedoc """
-    Type that represents Tubex.Video struct.
+    Type that represents TubEx.Video struct.
   """
-  @type t :: %Tubex.Video{
+  @type t :: %TubEx.Video{
     title: charlist,
     etag: charlist,
     video_id: charlist,
@@ -31,13 +31,13 @@ defmodule Tubex.Video do
     Fetch contents details
 
     Example:
-      iex> Tubex.Video.detail("_J4QPz52Sfo")
-      { :ok, %Tubex.Video{} }
+      iex> TubEx.Video.detail("_J4QPz52Sfo")
+      { :ok, %TubEx.Video{} }
   """
-  @spec detail(charlist) :: { atom, Tubex.Video.t  }
+  @spec detail(charlist) :: { atom, TubEx.Video.t  }
   def detail(video_id) do
     opts = [
-      key: Tubex.api_key,
+      key: TubEx.api_key,
       id: video_id,
       part: "snippet",
     ]
@@ -55,20 +55,20 @@ defmodule Tubex.Video do
   ## Examples
 
     ** Get videos by query: **
-      iex> Tubex.Video.search_by_query("_J4QPz52Sfo")
-      { :ok, [%Tubex.Video{}, ...], meta_map }
+      iex> TubEx.Video.search_by_query("_J4QPz52Sfo")
+      { :ok, [%TubEx.Video{}, ...], meta_map }
 
     ** Custom query parameters: **
-      iex> Tubex.Video.search_by_query("_J4QPz52Sfo", [
+      iex> TubEx.Video.search_by_query("_J4QPz52Sfo", [
         paramKey: paramValue,
         ...
       ])
-      { :ok, [%Tubex.Video{}, ...], meta_map }
+      { :ok, [%TubEx.Video{}, ...], meta_map }
   """
-  @spec search_by_query(charlist, Keyword.t) :: { atom, list(Tubex.Video.t), map }
+  @spec search_by_query(charlist, Keyword.t) :: { atom, list(TubEx.Video.t), map }
   def search_by_query(query, opts \\ []) do
     defaults = [
-      key: Tubex.api_key,
+      key: TubEx.api_key,
       part: "snippet",
       maxResults: 20,
       q: query
@@ -89,20 +89,20 @@ defmodule Tubex.Video do
   ## Examples
 
     ** Get related videos: **
-      iex> Tubex.Video.related_with_video("_J4QPz52Sfo")
-      { :ok, [%Tubex.Video{}, ...], meta_map }
+      iex> TubEx.Video.related_with_video("_J4QPz52Sfo")
+      { :ok, [%TubEx.Video{}, ...], meta_map }
 
     ** Custom query parameters: **
-      iex> Tubex.Video.related_with_video("_J4QPz52Sfo", [
+      iex> TubEx.Video.related_with_video("_J4QPz52Sfo", [
         paramKey: paramValue,
         ...
       ])
-      { :ok, [%Tubex.Video{}], meta_map }
+      { :ok, [%TubEx.Video{}], meta_map }
   """
-  @spec related_with_video(charlist, Keyword.t) :: { atom, list(Tubex.Video.t), map }
+  @spec related_with_video(charlist, Keyword.t) :: { atom, list(TubEx.Video.t), map }
   def related_with_video(video_id, opts \\ []) do
     defaults = [
-      key: Tubex.api_key,
+      key: TubEx.api_key,
       part: "snippet",
       maxResults: 20,
       relatedToVideoId: video_id
@@ -118,8 +118,8 @@ defmodule Tubex.Video do
   end
 
   defp api_request(pathname, query) do
-    Tubex.API.get(
-      Tubex.endpoint <> pathname,
+    TubEx.API.get(
+      TubEx.endpoint <> pathname,
       Keyword.merge(query, [type: "video"])
     )
   end
@@ -141,7 +141,7 @@ defmodule Tubex.Video do
 
   defp parse(%{"snippet" => snippet, "id" => %{"videoId" => video_id}}) do
     {:ok,
-      %Tubex.Video{
+      %TubEx.Video{
         etag: snippet["etag"],
         title: snippet["title"],
         thumbnails: snippet["thumbnails"],

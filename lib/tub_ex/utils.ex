@@ -1,4 +1,4 @@
-defmodule Tubex.Utils do
+defmodule TubEx.Utils do
   @doc """
   Encode request body
   """

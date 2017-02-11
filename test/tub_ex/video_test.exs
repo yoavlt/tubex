@@ -1,4 +1,4 @@
-defmodule TubexTest.Video do
+defmodule TubExTest.Video do
   use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
@@ -6,7 +6,7 @@ defmodule TubexTest.Video do
   @key System.get_env("YOUTUBE_API_KEY")
   @q "the great debate: the storytelling of science"
 
-  defp video_type_spec(%Tubex.Video{}), do: true
+  defp video_type_spec(%TubEx.Video{}), do: true
   defp video_type_spec(_), do: false
 
   defp now, do: DateTime.to_unix(DateTime.utc_now())
@@ -19,12 +19,12 @@ defmodule TubexTest.Video do
   test "video detail" do
     use_cassette "get_video" do
       HTTPoison.start
-      {:ok, resp} = HTTPoison.get("#{Tubex.endpoint}/videos?id=#{@videoId}&key=#{@key}&part=snippet", [])
+      {:ok, resp} = HTTPoison.get("#{TubEx.endpoint}/videos?id=#{@videoId}&key=#{@key}&part=snippet", [])
       %{ body: body, status_code: status } = resp;
       %{ "items" => [ item ] } = Poison.decode!(body)
-      { :ok, video } = Tubex.Video.detail(@videoId);
+      { :ok, video } = TubEx.Video.detail(@videoId);
 
-      expected = %Tubex.Video{
+      expected = %TubEx.Video{
         etag: item["etag"],
         title: item["title"],
         thumbnails: item["thumbnails"],
@@ -44,7 +44,7 @@ defmodule TubexTest.Video do
   test "negative detail" do
     use_cassette "negative_detail" do
       HTTPoison.start
-      { :error, %{ "error" => %{ "code" => code } } } = Tubex.Video.detail("#{now}")
+      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.detail("#{now}")
       assert code == 400
     end
   end
@@ -52,18 +52,18 @@ defmodule TubexTest.Video do
   test "search_by_query" do
     use_cassette "search_by_query" do
       HTTPoison.start
-      query = Tubex.Utils.encode_body([
+      query = TubEx.Utils.encode_body([
         key: @key,
         part: "snippet",
         maxResults: 20,
         type: "video",
         q: @q
       ])
-      {:ok, resp} = HTTPoison.get("#{Tubex.endpoint}/search?#{query}", [])
+      {:ok, resp} = HTTPoison.get("#{TubEx.endpoint}/search?#{query}", [])
       %{ body: body, status_code: status } = resp;
       response = Poison.decode!(body)
 
-      { :ok, videos, page_info } = Tubex.Video.search_by_query(@q)
+      { :ok, videos, page_info } = TubEx.Video.search_by_query(@q)
 
       assert status == 200
       assert page_info["nextPageToken"] == response["nextPageToken"]
@@ -80,7 +80,7 @@ defmodule TubexTest.Video do
         part: "123123"
       ]
 
-      { :error, %{ "error" => %{ "code" => code } } } = Tubex.Video.search_by_query(@q, query)
+      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.search_by_query(@q, query)
 
       assert code == 400
     end
@@ -89,11 +89,11 @@ defmodule TubexTest.Video do
   test "related_videos" do
     use_cassette "related_videos" do
       HTTPoison.start
-      {:ok, resp} = HTTPoison.get("#{Tubex.endpoint}/search?relatedToVideoId=#{@videoId}&key=#{@key}&part=snippet&maxResults=20&type=video", [])
+      {:ok, resp} = HTTPoison.get("#{TubEx.endpoint}/search?relatedToVideoId=#{@videoId}&key=#{@key}&part=snippet&maxResults=20&type=video", [])
       %{ body: body, status_code: status } = resp;
       response = Poison.decode!(body)
 
-      { :ok, videos, page_info } = Tubex.Video.related_with_video(@q)
+      { :ok, videos, page_info } = TubEx.Video.related_with_video(@q)
 
       assert status == 200
       assert page_info["nextPageToken"] == response["nextPageToken"]
@@ -110,7 +110,7 @@ defmodule TubexTest.Video do
         part: "123123"
       ]
 
-      { :error, %{ "error" => %{ "code" => code } } } = Tubex.Video.related_with_video(@videoId, query)
+      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.related_with_video(@videoId, query)
 
       assert code == 400
     end
@@ -120,7 +120,7 @@ defmodule TubexTest.Video do
     use_cassette "raise_parse" do
       HTTPoison.start
 
-      assert_raise RuntimeError, fn -> Tubex.Video.search_by_query("#{now()}") end
+      assert_raise RuntimeError, fn -> TubEx.Video.search_by_query("#{now()}") end
     end
   end
 end

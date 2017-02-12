@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=1485632925&type=video"
+    },
+    "response": {
+      "body": "{\n \"kind\": \"youtube#searchListResponse\",\n \"etag\": \"\\\"gMxXHe-zinKdE9lTnzKu8vjcmDI/W4T0FtV03LLvhKrYGJiSkXYH4u8\\\"\",\n \"regionCode\": \"UA\",\n \"pageInfo\": {\n  \"totalResults\": 0,\n  \"resultsPerPage\": 20\n },\n \"items\": [\n {} \n]\n}\n",
+      "headers": {
+        "Expires": "Sat, 28 Jan 2017 19:48:46 GMT",
+        "Date": "Sat, 28 Jan 2017 19:48:46 GMT",
+        "Cache-Control": "private, max-age=120, must-revalidate, no-transform",
+        "ETag": "\"gMxXHe-zinKdE9lTnzKu8vjcmDI/W4T0FtV03LLvhKrYGJiSkXYH4u8\"",
+        "Vary": "Origin",
+        "Content-Type": "application/json; charset=UTF-8",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "212",
+        "Server": "GSE",
+        "Alt-Svc": "quic=\":443\"; ma=2592000; v=\"35,34\""
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

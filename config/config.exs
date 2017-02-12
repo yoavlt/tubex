@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :tubex, key: :value
+#     config :tub_ex, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:tubex, :key)
+#     Application.get_env(:tub_ex, :key)
 #
 # Or configure a 3rd-party app:
 #

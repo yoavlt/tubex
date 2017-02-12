@@ -1,11 +1,10 @@
-defmodule Tubex.API do
-
+defmodule TubEx.API do
   def get(url, query \\ []) do
     HTTPoison.start
-    query = Tubex.Utils.encode_body(query)
+    query = TubEx.Utils.encode_body(query)
 
-    unless String.length(query) == 0 do
-      url = "#{url}?#{query}"
+    url = unless String.length(query) == 0 do
+      "#{url}?#{query}"
     end
 
     HTTPoison.get!(url, [])
@@ -34,5 +33,4 @@ defmodule Tubex.API do
   defp handle_response(%HTTPoison.Response{body: body, status_code: _}) do
     {:error, Poison.decode!(body)}
   end
-
 end

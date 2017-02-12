@@ -1,33 +1,34 @@
-# Tubex
+# TubEx
+---
+[![Build Status](https://travis-ci.org/Rastopyr/tub_ex.svg?branch=master)](https://travis-ci.org/Rastopyr/tub_ex)
+[![Coverage Status](https://coveralls.io/repos/github/Rastopyr/tub_ex/badge.svg?branch=master)](https://coveralls.io/github/Rastopyr/tub_ex?branch=master)
 
 Lightweight YouTube v3 API Wrapper
+[Documentation](https://hexdocs.pm/tub_ex)
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add tubex to your list of dependencies in `mix.exs`:
+1. Add tub_ex to your list of dependencies in `mix.exs`:
 
-        def deps do
-          [{:tubex, "~> 0.0.1"}]
-        end
+```elixir
+def deps do
+  [{:tub_ex, "~> 0.0.12"}]
+end
+```
 
-  2. Ensure tubex is started before your application:
+2. Ensure tub_ex is started before your application:
 
-        def application do
-          [applications: [:tubex]]
-        end
+```elixir
+def application do
+  [applications: [:tub_ex]]
+end
+```
 
   3. Put your config YouTube Data API Key
 
 ```elixir
-config :tubex, Tubex,
+config :tub_ex, TubEx,
   api_key: "< Your API Key >"
-```
-
-
-## Usage
-
-```elixir
-Tubex.Video.search_by_query("Cooking")
 ```

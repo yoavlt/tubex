@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://www.googleapis.com/youtube/v3/videos?id=_J4QPz52Sfo&part=snippet"
+    },
+    "response": {
+      "body": "{\n \"kind\": \"youtube#videoListResponse\",\n \"etag\": \"\\\"gMxXHe-zinKdE9lTnzKu8vjcmDI/zlotTh_VrFNKY29JyriGuuX4O5g\\\"\",\n \"pageInfo\": {\n  \"totalResults\": 1,\n  \"resultsPerPage\": 1\n },\n \"items\": [\n  {\n   \"kind\": \"youtube#video\",\n   \"etag\": \"\\\"gMxXHe-zinKdE9lTnzKu8vjcmDI/Y3Cv7UmRlh4zWQORp8qO6Ap2D30\\\"\",\n   \"id\": \"_J4QPz52Sfo\",\n   \"snippet\": {\n    \"publishedAt\": \"2013-04-06T22:22:04.000Z\",\n    \"channelId\": \"UCgSlWFwG9zKpWpdiCLwHzDA\",\n    \"title\": \"The Great Debate: THE STORYTELLING OF SCIENCE (OFFICIAL) - (Part 1/2)\",\n    \"description\": \"Link to Part 2 (of 2):  http://www.youtube.com/watch?v=40YIIaF1qiw\\n\\nThe Origins Project at ASU presents the final night in the Origins Stories weekend, focusing on the science of storytelling and the storytelling of science.  The Storytelling of Science features a panel of esteemed scientists, public intellectuals, and award-winning writers including well-known science educator Bill Nye, astrophysicist Neil deGrasse Tyson, evolutionary biologist Richard Dawkins, theoretical physicist Brian Greene, Science Friday's Ira Flatow, popular science fiction writer Neal Stephenson, executive director of the World Science Festival Tracy Day, and Origins Project director Lawrence Krauss as they discuss the stories behind cutting edge science from the origin of the universe to a discussion of exciting technologies that will change our future. They demonstrate how to convey the excitement of science and the importance helping promote a public understanding of science.\\n\\nVideo by Black Chalk Productions\\n\\nGet the most recent updates from the Origins Project by following us on Facebook /ASUOriginsProject and Twitter @asuORIGINS. Contact origins.project@asu.eduwith questions.\",\n    \"thumbnails\": {\n     \"default\": {\n      \"url\": \"https://i.ytimg.com/vi/_J4QPz52Sfo/default.jpg\",\n      \"width\": 120,\n      \"height\": 90\n     },\n     \"medium\": {\n      \"url\": \"https://i.ytimg.com/vi/_J4QPz52Sfo/mqdefault.jpg\",\n      \"width\": 320,\n      \"height\": 180\n     },\n     \"high\": {\n      \"url\": \"https://i.ytimg.com/vi/_J4QPz52Sfo/hqdefault.jpg\",\n      \"width\": 480,\n      \"height\": 360\n     },\n     \"standard\": {\n      \"url\": \"https://i.ytimg.com/vi/_J4QPz52Sfo/sddefault.jpg\",\n      \"width\": 640,\n      \"height\": 480\n     },\n     \"maxres\": {\n      \"url\": \"https://i.ytimg.com/vi/_J4QPz52Sfo/maxresdefault.jpg\",\n      \"width\": 1280,\n      \"height\": 720\n     }\n    },\n    \"channelTitle\": \"ShirleyFilms\",\n    \"tags\": [\n     \"Science\",\n     \"Storytelling\",\n     \"Origins\",\n     \"Project\",\n     \"ASU\",\n     \"Lawrence Krauss\",\n     \"Richard Dawkins\",\n     \"Bill Nye\",\n     \"Neil deGrasse Tyson\",\n     \"Brian Greene\",\n     \"Ira Flatow\",\n     \"Tracy Day\",\n     \"Neal Stephenson\",\n     \"Gammage Auditorium\",\n     \"Arizona State University\",\n     \"Black Chalk Production\",\n     \"Science Of Storytelling\",\n     \"Storytelling Of Science\",\n     \"Great Debate\"\n    ],\n    \"categoryId\": \"27\",\n    \"liveBroadcastContent\": \"none\",\n    \"localized\": {\n     \"title\": \"The Great Debate: THE STORYTELLING OF SCIENCE (OFFICIAL) - (Part 1/2)\",\n     \"description\": \"Link to Part 2 (of 2):  http://www.youtube.com/watch?v=40YIIaF1qiw\\n\\nThe Origins Project at ASU presents the final night in the Origins Stories weekend, focusing on the science of storytelling and the storytelling of science.  The Storytelling of Science features a panel of esteemed scientists, public intellectuals, and award-winning writers including well-known science educator Bill Nye, astrophysicist Neil deGrasse Tyson, evolutionary biologist Richard Dawkins, theoretical physicist Brian Greene, Science Friday's Ira Flatow, popular science fiction writer Neal Stephenson, executive director of the World Science Festival Tracy Day, and Origins Project director Lawrence Krauss as they discuss the stories behind cutting edge science from the origin of the universe to a discussion of exciting technologies that will change our future. They demonstrate how to convey the excitement of science and the importance helping promote a public understanding of science.\\n\\nVideo by Black Chalk Productions\\n\\nGet the most recent updates from the Origins Project by following us on Facebook /ASUOriginsProject and Twitter @asuORIGINS. Contact origins.project@asu.eduwith questions.\"\n    }\n   }\n  }\n ]\n}\n",
+      "headers": {
+        "Expires": "Sat, 28 Jan 2017 16:42:02 GMT",
+        "Date": "Sat, 28 Jan 2017 16:42:02 GMT",
+        "Cache-Control": "private, max-age=300, must-revalidate, no-transform",
+        "ETag": "\"gMxXHe-zinKdE9lTnzKu8vjcmDI/zlotTh_VrFNKY29JyriGuuX4O5g\"",
+        "Vary": "Origin",
+        "Content-Type": "application/json; charset=UTF-8",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "4273",
+        "Server": "GSE",
+        "Alt-Svc": "quic=\":443\"; ma=2592000; v=\"35,34\""
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

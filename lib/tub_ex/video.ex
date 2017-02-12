@@ -31,11 +31,11 @@ defmodule TubEx.Video do
     Fetch contents details
 
     Example:
-      iex> TubEx.Video.detail("_J4QPz52Sfo")
+      iex> TubEx.Video.get("_J4QPz52Sfo")
       { :ok, %TubEx.Video{} }
   """
-  @spec detail(charlist) :: { atom, TubEx.Video.t  }
-  def detail(video_id) do
+  @spec get(charlist) :: { atom, TubEx.Video.t  }
+  def get(video_id) do
     opts = [
       key: TubEx.api_key,
       id: video_id,
@@ -55,18 +55,18 @@ defmodule TubEx.Video do
   ## Examples
 
     ** Get videos by query: **
-      iex> TubEx.Video.search_by_query("_J4QPz52Sfo")
+      iex> TubEx.Video.search("The great debates")
       { :ok, [%TubEx.Video{}, ...], meta_map }
 
     ** Custom query parameters: **
-      iex> TubEx.Video.search_by_query("_J4QPz52Sfo", [
+      iex> TubEx.Video.search("The great debates", [
         paramKey: paramValue,
         ...
       ])
       { :ok, [%TubEx.Video{}, ...], meta_map }
   """
-  @spec search_by_query(charlist, Keyword.t) :: { atom, list(TubEx.Video.t), map }
-  def search_by_query(query, opts \\ []) do
+  @spec search(charlist, Keyword.t) :: { atom, list(TubEx.Video.t), map }
+  def search(query, opts \\ []) do
     defaults = [
       key: TubEx.api_key,
       part: "snippet",
@@ -89,18 +89,18 @@ defmodule TubEx.Video do
   ## Examples
 
     ** Get related videos: **
-      iex> TubEx.Video.related_with_video("_J4QPz52Sfo")
+      iex> TubEx.Video.related("_J4QPz52Sfo")
       { :ok, [%TubEx.Video{}, ...], meta_map }
 
     ** Custom query parameters: **
-      iex> TubEx.Video.related_with_video("_J4QPz52Sfo", [
+      iex> TubEx.Video.related("_J4QPz52Sfo", [
         paramKey: paramValue,
         ...
       ])
       { :ok, [%TubEx.Video{}], meta_map }
   """
-  @spec related_with_video(charlist, Keyword.t) :: { atom, list(TubEx.Video.t), map }
-  def related_with_video(video_id, opts \\ []) do
+  @spec related(charlist, Keyword.t) :: { atom, list(TubEx.Video.t), map }
+  def related(video_id, opts \\ []) do
     defaults = [
       key: TubEx.api_key,
       part: "snippet",

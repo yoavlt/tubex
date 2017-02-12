@@ -22,7 +22,7 @@ defmodule TubExTest.Video do
       {:ok, resp} = HTTPoison.get("#{TubEx.endpoint}/videos?id=#{@videoId}&key=#{@key}&part=snippet", [])
       %{ body: body, status_code: status } = resp;
       %{ "items" => [ item ] } = Poison.decode!(body)
-      { :ok, video } = TubEx.Video.detail(@videoId);
+      { :ok, video } = TubEx.Video.get(@videoId);
 
       expected = %TubEx.Video{
         etag: item["etag"],
@@ -44,7 +44,7 @@ defmodule TubExTest.Video do
   test "negative detail" do
     use_cassette "negative_detail" do
       HTTPoison.start
-      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.detail("#{now}")
+      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.get("#{now}")
       assert code == 400
     end
   end
@@ -63,7 +63,7 @@ defmodule TubExTest.Video do
       %{ body: body, status_code: status } = resp;
       response = Poison.decode!(body)
 
-      { :ok, videos, page_info } = TubEx.Video.search_by_query(@q)
+      { :ok, videos, page_info } = TubEx.Video.search(@q)
 
       assert status == 200
       assert page_info["nextPageToken"] == response["nextPageToken"]
@@ -80,7 +80,7 @@ defmodule TubExTest.Video do
         part: "123123"
       ]
 
-      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.search_by_query(@q, query)
+      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.search(@q, query)
 
       assert code == 400
     end
@@ -93,7 +93,7 @@ defmodule TubExTest.Video do
       %{ body: body, status_code: status } = resp;
       response = Poison.decode!(body)
 
-      { :ok, videos, page_info } = TubEx.Video.related_with_video(@q)
+      { :ok, videos, page_info } = TubEx.Video.related(@videoId)
 
       assert status == 200
       assert page_info["nextPageToken"] == response["nextPageToken"]
@@ -110,7 +110,7 @@ defmodule TubExTest.Video do
         part: "123123"
       ]
 
-      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.related_with_video(@videoId, query)
+      { :error, %{ "error" => %{ "code" => code } } } = TubEx.Video.related(@videoId, query)
 
       assert code == 400
     end
@@ -120,7 +120,7 @@ defmodule TubExTest.Video do
     use_cassette "raise_parse" do
       HTTPoison.start
 
-      assert_raise RuntimeError, fn -> TubEx.Video.search_by_query("#{now()}") end
+      assert_raise RuntimeError, fn -> TubEx.Video.search("#{now()}") end
     end
   end
 end

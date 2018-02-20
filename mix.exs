@@ -9,9 +9,9 @@ defmodule Tubex.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps,
+     deps: deps(),
      description: @description,
-     package: package]
+     package: package()]
   end
 
   # Configuration for the OTP application
@@ -39,8 +39,8 @@ defmodule Tubex.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:poison, "~> 2.0"},
-      {:httpoison, "~> 0.8.0"},
+      {:poison, "~> 3.0"},
+      {:httpoison, "~> 0.11.1"},
       {:ex_doc, "~> 0.8.0", only: :dev},
       {:earmark, ">= 0.0.0", only: :dev}
     ]

@@ -1,14 +1,13 @@
 defmodule Tubex.API do
+  require Logger
 
   def get(url, query \\ []) do
     HTTPoison.start
     query = Tubex.Utils.encode_body(query)
 
-    unless String.length(query) == 0 do
-      url = "#{url}?#{query}"
-    end
+    url2 = if String.length(query) == 0, do: url, else: url <> "?" <> query
 
-    HTTPoison.get!(url, [])
+    HTTPoison.get!(url2, [])
     |> handle_response
   end
 
@@ -31,7 +30,8 @@ defmodule Tubex.API do
     {:ok, Poison.decode!(body)}
   end
 
-  defp handle_response(%HTTPoison.Response{body: body, status_code: _}) do
+  defp handle_response(%HTTPoison.Response{body: body, status_code: _} = response) do
+    Logger.warn("Response: #{inspect response}")
     {:error, Poison.decode!(body)}
   end
 
